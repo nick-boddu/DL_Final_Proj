@@ -46,7 +46,7 @@ def load_model():
     """Load or initialize the model."""
     # TODO: Replace MockModel with your trained model
     model = JEPAWorldModel(representation_dim=512, action_dim=2)
-    model_weights = torch.load('./weights/jepa_vit_world_model.pth')
+    model_weights = torch.load('/scratch/nb3968/repo_folder/DL24FA/weights/jepa_vit_world_model.pth')
     model.load_state_dict(model_weights['model_state_dict'])
     model.to(get_device())
     return model
