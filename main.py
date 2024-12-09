@@ -3,6 +3,7 @@ from evaluator import ProbingEvaluator
 import torch
 from models import MockModel
 import glob
+from src.models.jepa import JEPAWorldModel
 
 
 def get_device():
@@ -13,7 +14,7 @@ def get_device():
 
 
 def load_data(device):
-    data_path = "/scratch/DL24FA"
+    data_path = "/scratch/nb3968/DL24FA"
 
     probe_train_ds = create_wall_dataloader(
         data_path=f"{data_path}/probe_normal/train",
@@ -44,7 +45,7 @@ def load_data(device):
 def load_model():
     """Load or initialize the model."""
     # TODO: Replace MockModel with your trained model
-    model = MockModel()
+    model = JEPAWorldModel(representation_dim=512, action_dim=2)
     return model
 
 
