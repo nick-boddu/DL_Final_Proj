@@ -49,6 +49,7 @@ def load_model():
     model_weights = torch.load('/scratch/nb3968/repo_folder/DL_Final_Proj/weights/jepa_vit_world_model.pth')
     model.load_state_dict(model_weights)
     model.to(get_device())
+    model.repr_dim = 512
     return model
 
 
